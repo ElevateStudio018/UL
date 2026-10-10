@@ -1,0 +1,38 @@
+{
+  "name": "samak",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Samåk – reseplanerare för två personer i UL-trafiken (Uppsala och Uppland). Inofficiell.",
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c green,blue \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:web": "vite",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "start": "NODE_ENV=production tsx server/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "gtfs-realtime-bindings": "^2.2.0",
+    "leaflet": "^1.9.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.23.15",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/google.maps": "^3.66.6",
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^26.6.5",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^10.0.6",
+    "typescript": "5.9",
+    "vite": "^5.4.21",
+    "vitest": "^2.1.9"
+  }
+}

@@ -1,0 +1,21 @@
+# OpenTripPlanner för Samåk. Bygg grafen först (otp-build), starta sedan otp.
+services:
+  otp-build:
+    image: opentripplanner/opentripplanner:2.7.0
+    volumes:
+      - ./data:/var/opentripplanner
+      - ./build-config.json:/var/opentripplanner/build-config.json:ro
+    command: --build --save
+    environment:
+      JAVA_TOOL_OPTIONS: -Xmx6g
+  otp:
+    image: opentripplanner/opentripplanner:2.7.0
+    volumes:
+      - ./data:/var/opentripplanner
+      - ./router-config.json:/var/opentripplanner/router-config.json:ro
+    command: --load --serve
+    ports:
+      - "8080:8080"
+    environment:
+      JAVA_TOOL_OPTIONS: -Xmx4g
+      TRAFIKLAB_GTFS_RT_KEY: ${TRAFIKLAB_GTFS_RT_KEY:-}

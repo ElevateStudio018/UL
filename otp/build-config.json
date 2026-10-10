@@ -1,0 +1,6 @@
+{
+  "transitServiceStart": "-P3D",
+  "transitServiceEnd": "P8W",
+  "transitFeeds": [{ "type": "gtfs", "feedId": "ul", "source": "ul.zip" }],
+  "osm": [{ "source": "uppsala-lan.osm.pbf" }]
+}

@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+*.local
+otp/data/*.zip
+otp/data/*.pbf
+otp/data/graph.obj

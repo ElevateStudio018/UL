@@ -1,0 +1,22 @@
+{
+  "routingDefaults": {
+    "numItineraries": 8,
+    "searchWindow": "PT90M",
+    "transferSlack": "PT2M",
+    "walk": { "speed": 1.33, "reluctance": 2.0 }
+  },
+  "updaters": [
+    {
+      "type": "stop-time-updater",
+      "feedId": "ul",
+      "frequency": "30s",
+      "url": "https://opendata.samtrafiken.se/gtfs-rt/ul/TripUpdates.pb?key=${TRAFIKLAB_GTFS_RT_KEY}"
+    },
+    {
+      "type": "real-time-alerts",
+      "feedId": "ul",
+      "frequency": "60s",
+      "url": "https://opendata.samtrafiken.se/gtfs-rt/ul/ServiceAlerts.pb?key=${TRAFIKLAB_GTFS_RT_KEY}"
+    }
+  ]
+}
